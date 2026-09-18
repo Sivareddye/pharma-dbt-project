@@ -1,0 +1,23 @@
+# dbt generated folders
+target/
+dbt_packages/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+dbt_env/
+
+# Environment variables
+.env
+.env.*
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Credentials
+profiles.yml
