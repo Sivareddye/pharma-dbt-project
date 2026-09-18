@@ -31,14 +31,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   pharma_dbt:
+
     staging:
       +materialized: view
+      +schema: DBT_DEV
 
     intermediate:
       +materialized: view
+      +schema: PHARMA_INT
 
     core:
       +materialized: table
+      +schema: PHARMA_CORE
 
     marts:
       +materialized: table
+      +schema: PHARMA_MART
