@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: pharma_raw
+    database: PHARMA_DB
+    schema: PHARMA_RAW
+
+    tables:
+      - name: raw_patients
+      - name: raw_providers
+      - name: raw_products
+      - name: raw_territories
+      - name: raw_prescriptions
+      - name: raw_claims
+      - name: raw_sales
+      - name: raw_adverse_events
