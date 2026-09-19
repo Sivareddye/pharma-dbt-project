@@ -1,0 +1,57 @@
+version: 2
+
+models:
+
+  - name: int_claims_by_prescription
+    description: >
+      Aggregates claim information to one row per prescription.
+
+    columns:
+
+      - name: prescription_id
+        data_tests:
+          - not_null
+          - unique
+
+
+  - name: int_prescription_enriched
+    description: >
+      Prescription-level dataset enriched with patient,
+      provider, product and claim information.
+
+    columns:
+
+      - name: prescription_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: patient_id
+        data_tests:
+          - not_null
+
+      - name: provider_id
+        data_tests:
+          - not_null
+
+      - name: product_id
+        data_tests:
+          - not_null
+
+      - name: prescription_type
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - NEW
+                  - REFILL
+
+      - name: overall_claim_status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - APPROVED
+                  - REJECTED
+                  - NO CLAIM
+                  - UNKNOWN
