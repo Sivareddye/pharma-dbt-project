@@ -47,3 +47,7 @@ models:
     marts:
       +materialized: table
       +schema: PHARMA_MART
+snapshots:
+  pharma_dbt:
+    +database: PHARMA_DB
+    +schema: PHARMA_SNAPSHOT
