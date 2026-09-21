@@ -1,0 +1,114 @@
+snapshots:
+
+  # ============================================================
+  # 1. PATIENT SNAPSHOT
+  # ============================================================
+
+  - name: patient_snapshot
+
+    relation: source('pharma_raw', 'raw_patients')
+
+    config:
+      unique_key: patient_id
+      strategy: timestamp
+      updated_at: updated_at
+
+
+  # ============================================================
+  # 2. PROVIDER SNAPSHOT
+  # ============================================================
+
+  - name: provider_snapshot
+
+    relation: source('pharma_raw', 'raw_providers')
+
+    config:
+      unique_key: provider_id
+      strategy: timestamp
+      updated_at: updated_at
+
+
+  # ============================================================
+  # 3. PRODUCT SNAPSHOT
+  # ============================================================
+
+  - name: product_snapshot
+
+    relation: source('pharma_raw', 'raw_products')
+
+    config:
+      unique_key: product_id
+      strategy: timestamp
+      updated_at: updated_at
+
+
+  # ============================================================
+  # 4. TERRITORY SNAPSHOT
+  # RAW_TERRITORIES does not have UPDATED_AT,
+  # so CHECK strategy is used.
+  # ============================================================
+
+  - name: territory_snapshot
+
+    relation: source('pharma_raw', 'raw_territories')
+
+    config:
+      unique_key: territory_id
+      strategy: check
+      check_cols: all
+
+
+  # ============================================================
+  # 5. PRESCRIPTION SNAPSHOT
+  # ============================================================
+
+  - name: prescription_snapshot
+
+    relation: source('pharma_raw', 'raw_prescriptions')
+
+    config:
+      unique_key: prescription_id
+      strategy: timestamp
+      updated_at: updated_at
+
+
+  # ============================================================
+  # 6. CLAIM SNAPSHOT
+  # ============================================================
+
+  - name: claim_snapshot
+
+    relation: source('pharma_raw', 'raw_claims')
+
+    config:
+      unique_key: claim_id
+      strategy: timestamp
+      updated_at: updated_at
+
+
+  # ============================================================
+  # 7. SALES SNAPSHOT
+  # ============================================================
+
+  - name: sales_snapshot
+
+    relation: source('pharma_raw', 'raw_sales')
+
+    config:
+      unique_key: sales_id
+      strategy: timestamp
+      updated_at: updated_at
+
+
+  # ============================================================
+  # 8. ADVERSE EVENT SNAPSHOT
+  # ============================================================
+
+  - name: adverse_event_snapshot
+
+    relation: source('pharma_raw', 'raw_adverse_events')
+
+    config:
+      unique_key: event_id
+      strategy: timestamp
+      updated_at: updated_at

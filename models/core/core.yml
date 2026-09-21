@@ -1,0 +1,101 @@
+version: 2
+
+models:
+
+  - name: dim_patient
+    columns:
+
+      - name: patient_key
+        data_tests:
+          - unique
+          - not_null
+
+      - name: patient_id
+        data_tests:
+          - unique
+          - not_null
+
+
+  - name: dim_provider
+    columns:
+
+      - name: provider_key
+        data_tests:
+          - unique
+          - not_null
+
+      - name: provider_id
+        data_tests:
+          - unique
+          - not_null
+
+
+  - name: dim_product
+    columns:
+
+      - name: product_key
+        data_tests:
+          - unique
+          - not_null
+
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+
+
+  - name: dim_territory
+    columns:
+
+      - name: territory_key
+        data_tests:
+          - unique
+          - not_null
+
+
+  - name: fct_prescriptions
+    columns:
+
+      - name: prescription_key
+        data_tests:
+          - unique
+          - not_null
+
+      - name: patient_key
+        data_tests:
+          - not_null
+
+      - name: provider_key
+        data_tests:
+          - not_null
+
+      - name: product_key
+        data_tests:
+          - not_null
+
+
+  - name: fct_claims
+    columns:
+
+      - name: claim_key
+        data_tests:
+          - unique
+          - not_null
+
+
+  - name: fct_sales
+    columns:
+
+      - name: sales_key
+        data_tests:
+          - unique
+          - not_null
+
+
+  - name: fct_adverse_events
+    columns:
+
+      - name: adverse_event_key
+        data_tests:
+          - unique
+          - not_null
