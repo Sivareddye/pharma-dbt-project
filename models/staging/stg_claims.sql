@@ -18,7 +18,8 @@ renamed as (
         patient_copay,
         upper(claim_status) as claim_status,
         rejection_reason,
-        updated_at
+        updated_at,
+        CURRENT_TIMESTAMP() as load_date
 
     from source
 
