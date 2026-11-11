@@ -18,7 +18,9 @@ renamed as (
         hospitalized_flag,
         upper(outcome) as outcome,
         reported_date,
-        updated_at
+        updated_at,
+        nullif(trim('Adverse Event'), '') as source,
+        CURRENT_TIMESTAMP() as load_date
 
     from source
 
